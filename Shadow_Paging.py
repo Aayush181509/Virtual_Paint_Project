@@ -55,7 +55,9 @@ def drawOnCanvas(myPoints,myColorValues):
 while True:
     success,img = cap.read()
     img=cv2.flip(img,1)
-    imgResult = img.copy()
+    # imgResult = img.copy()
+    imgResult = np.zeros_like(img)
+    imgResult[:] = 255, 255, 255
     newPoints = findColor(img, myColors,myColorValues)
     if len(newPoints) != 0:
         for newP in newPoints:
